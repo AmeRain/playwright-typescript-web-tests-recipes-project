@@ -22,7 +22,7 @@ test.describe('Create recipe', () => {
     testSupportApi = await playwright.request.newContext({
       // baseURL: `${process.env.URL}/api/test-support/v1`,
       extraHTTPHeaders: {
-        Authorization: `Bearer ${process.env.API_TOKEN}`,
+        Authorization: `Bearer ${process.env.TEST_API_TOKEN}`,
         Accept: 'application/json',
       },
     })
@@ -130,7 +130,7 @@ test.describe('Create recipe', () => {
 
 async function deleteRecipeById(recipeId: string) {
   if (recipeId != undefined) {
-    const deleteRecipes = await testSupportApi.delete(`${process.env.URL}/api/test-support/v1/recipes/${recipeId}`);
+    const deleteRecipes = await testSupportApi.delete(`${process.env.BASE_URL}/api/test-support/v1/recipes/${recipeId}`);
     expect(deleteRecipes.ok()).toBeTruthy();
     console.log((await deleteRecipes.body()).toString());
   }
