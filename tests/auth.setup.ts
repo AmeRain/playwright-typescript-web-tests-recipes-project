@@ -3,6 +3,7 @@ import { expect, test as setup } from '@playwright/test';
 const authFile = 'playwright/.auth/user.json';
 
 setup('авторизация', async ({ page }) => {
+  console.log(`URL: ${process.env.URL}`)
   await page.goto('/login');
 
   await page.getByLabel('Email').fill(process.env.EMAIL);
