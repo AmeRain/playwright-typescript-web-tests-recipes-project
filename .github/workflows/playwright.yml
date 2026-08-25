@@ -1,9 +1,4 @@
 name: Playwright Tests
-env:
-    API_TOKEN: ${{ secrets.API_TOKEN }} 
-    URL: ${{ secrets.URL }} 
-    EMAIL: ${{ secrets.EMAIL }} 
-    PASSWORD: ${{ secrets.PASSWORD }} 
 on:
   push:
     branches: [ main, master ]
@@ -24,6 +19,11 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
+      env:
+        API_TOKEN: ${{ secrets.API_TOKEN }} 
+        URL: ${{ secrets.URL }} 
+        EMAIL: ${{ secrets.EMAIL }} 
+        PASSWORD: ${{ secrets.PASSWORD }} 
       run: npx playwright test
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
@@ -46,7 +46,7 @@ jobs:
         allure_history: allure-history
         allure_results: allure-results
     - name: Publish test report
-      uses: peaceiris/actions-gh-pages@v2
+      uses: peaceiris/actions-gh-pages@v3
       if: always()
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
