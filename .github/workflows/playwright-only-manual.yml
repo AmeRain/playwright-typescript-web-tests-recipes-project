@@ -1,7 +1,5 @@
 name: Playwright Tests Run Manual
 on:
-  push:
-    branches: [ main, master ]
   workflow_dispatch:
     inputs:
       browser:
@@ -13,6 +11,9 @@ on:
           - chromium
           - firefox
           - webkit
+          - Mobile Chrome
+          - Mobile Safari
+          - Google Chrome
 jobs:
   test:
     timeout-minutes: 60
