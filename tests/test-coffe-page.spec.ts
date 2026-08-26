@@ -3,8 +3,8 @@ import { CoffeePage } from '../pages/CoffePage';
 
 let coffeePage: CoffeePage;
 test.describe('Coffee page', () => {
-  test.beforeEach(async ({ page }) => {
-    coffeePage = new CoffeePage(page);
+  test.beforeEach(async ({ page, isMobile }) => {
+    coffeePage = new CoffeePage(page, isMobile);
     await coffeePage.goto();
   });
 

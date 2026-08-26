@@ -5,12 +5,12 @@ let mainPage: MainPage;
 
 
 test.describe('Main page', () => {
-  test.beforeEach(async ({ page }) => {
-    mainPage = new MainPage(page);
+  test.beforeEach(async ({ page, isMobile }) => {
+    mainPage = new MainPage(page, isMobile);
     await mainPage.goto();
   });
 
-  test('Main page: Filter by category', async ({ page }) => {
+  test('Main page: Filter by category', async ({ page, isMobile }) => {
     const categoryName = 'Завтрак';
     await mainPage.chooseCategory(categoryName);
     await expect(mainPage.item).toContainText(categoryName);

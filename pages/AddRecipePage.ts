@@ -52,7 +52,7 @@ export class AddRecipePage {
     this.filledLabel = page.locator("//p[contains(.,'Заполненность рецепта')]/following-sibling::p");
     this.filledPercentageLabel = page.locator("//div[@class='mt-4' and .//p[contains(.,'Заполненность рецепта')]]//p[contains(.,'%')]");
     this.readyLabel = page.locator("//span[contains(.,'Основное')]/following-sibling::span");
-    this.readyIcon = page.locator("//span[contains(.,'Основное')]/following-sibling::span//svg");
+    this.readyIcon = page.locator("//span[./span[contains(.,'Основное')]]/preceding-sibling::span/*[local-name()='svg']");
     this.readyIngredientsIcon = page.locator("//span[contains(.,'Ингредиенты')]/following-sibling::span//svg");
     this.messageThereAreUnsavedChanges = page.getByText('Есть несохранённые изменения');
     this.mainBlockIsReadyLabel = page.locator("//span[contains(.,'Основное')]/following-sibling::span");

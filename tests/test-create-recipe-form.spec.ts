@@ -13,7 +13,6 @@ test.describe('Add recipe page', () => {
 
   test('Заполнение основной формы при создании рецепта', async ({ page }) => {
     await addRecipePage.goto();
-    // await page.getByRole('button', { name: 'Добавить рецепт' }).click();
     await addRecipePage.fillTitle('Грузинский салат');
     await addRecipePage.fillDescription('Салат с ореховым соусом по грузински');
     await addRecipePage.fillServings('4');
@@ -26,11 +25,7 @@ test.describe('Add recipe page', () => {
     await expect(addRecipePage.readyIcon).toBeVisible();
 
     await expect(addRecipePage.readyIngredientsIcon).toBeVisible;
-
-    // await expect(addRecipePage.messageRecipesReadyLabel).toBeVisible();
-
     await addRecipePage.checkMessageRecipesReady();
-    //div[./p[contains(.,'Есть незаполненные обязательные поля')]]/following-sibling::button
   });
 
 
