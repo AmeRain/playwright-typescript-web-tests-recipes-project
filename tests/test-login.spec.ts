@@ -17,7 +17,7 @@ test('test-show', async ({ page }) => {
     await page.goto('https://wife-recipes.vercel.app');
   });
   await test.step('Icon logo and button "Добавить рецепт" is visible', async () => {
-    await expect(page.getByRole('link', { name: 'Wife Recipes' })).toBeVisible();
+    await expect(page.getByTestId('app-home')).toBeVisible();
     await expect(page.getByLabel('Добавить рецепт')).toBeVisible();
   });
 });
